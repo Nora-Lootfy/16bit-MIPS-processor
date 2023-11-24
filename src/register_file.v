@@ -1,4 +1,4 @@
-module register_file(reg1_read_data)
+module register_file
 (
 	input clk,
 	input rst,
@@ -20,8 +20,8 @@ module register_file(reg1_read_data)
 	// create register array of 8 registers each of size 16bit
 	reg 	[15:0]	reg_array[7:0];
 	
-	always @ (posedge clk or posedge rst) begin	
-		if (rst) begin
+	always @ (posedge clk or negedge rst) begin	
+		if (~rst) begin
 			reg_array[0] <= 16'b0;
 			reg_array[1] <= 16'b0;
 			reg_array[2] <= 16'b0;
@@ -31,14 +31,12 @@ module register_file(reg1_read_data)
 			reg_array[6] <= 16'b0;
 			reg_array[7] <= 16'b0;
 		end
-		else begin
-			if (reg_write) begin
-				reg_array[reg_write_add] <= reg_write_data;
-			end
-		end
+		else if (write_EN) 
+			reg_array[reg_write_add] <= reg_write_data;
+		
 	end
 	
 	assign reg1_read_data = reg_array[reg1_read_add];
 	assign reg2_read_data = reg_array[reg2_read_add];
-
+		 
 endmodule

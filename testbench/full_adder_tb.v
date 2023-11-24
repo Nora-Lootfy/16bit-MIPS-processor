@@ -12,49 +12,48 @@ module full_adder_tb;
 		B <= 1'b0;
 		Cin <= 1'b0;
 	
-		#20
+		#40
 		
 		A <= 1'b1;
 		B <= 1'b0;
 		Cin <= 1'b0;
 		
-		#20	 
+		#40	 
 		
 		A <= 1'b0;
 		B <= 1'b1;
 		Cin <= 1'b0;
 		
-		#20
+		#40
 		
 		A <= 1'b1;
 		B <= 1'b1;
 		Cin <= 1'b0;
-		#20
+		#40
 		
 		A <= 1'b0;
 		B <= 1'b0;
 		Cin <= 1'b1;
 	
-		#20	 
+		#40	 
 		
 		A <= 1'b1;
 		B <= 1'b0;
 		Cin <= 1'b1;
 		
-		#20	
+		#40	
 		
 		A <= 1'b0;
 		B <= 1'b1;
 		Cin <= 1'b1;
 		
-		#20
+		#40
 		
 		A <= 1'b1;
 		B <= 1'b1;
 		Cin <= 1'b1;
-		#20
 		
-		$finish;
+		
 		
 	end	
 endmodule
