@@ -1,0 +1,51 @@
+$WAVE4
+$RESOLUTION 1000
+$ENDTIME 300000
+I 1 "a#V8#[6:0]reg1 ricd6 0 e#V3#regc4 01zx"
+I 2 "e#V3#regc4 01zx"
+$BUS S 1 1 7 in
+$SC 2-8
+I 3 "a#V10#[15:0]wire1 ricd15 0 e#V4#wirec4 01zx"
+I 4 "e#V4#wirec4 01zx"
+$BUS S 9 3 16 out
+$SC +1-25
+P 0 1-25 CS "1"
+P 0 9 Radix "2"
+$WAVES 2
+=0 T 0
+=1 T 40k
+=2 T 80k
+$VALUES
+V 3
+0
+1
+0
+$END
+$WAVES 3-8
+*0
+R 1 3 *1
+$VALUES
+R 2 2 0 1
+$END
+$WAVES +2-+9
+*0
+=3 D 0 2
+=4 D 40k 2
+=5 D 80k 2
+$VALUES
+V 4
+x
+0
+1
+0
+$END
+$WAVES +1-+5
+*0
+*3
+R 1 3 *4
+$VALUES
+V 1
+x
+R 2 2 0 1
+$END
+$ENDWAVE
