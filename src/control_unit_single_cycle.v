@@ -7,6 +7,14 @@ module control_unit_single_cycle(PC_sel, MemToReg, REG_sel, ALU_OP, write_EN, HL
 	output reg [3:0] ALU_OP;
 	output reg	write_EN, HLT_RST, MEM_write, MEM_read, ALU_sel;
 	
+	initial	begin 
+		HLT_RST = 1;
+		#1
+		HLT_RST = 0;
+		#1
+		HLT_RST = 1;
+	end
+	
 	always @(*) begin
 		if(opcode == 3'b000) begin	
 			case(function_extend)
@@ -243,7 +251,7 @@ module control_unit_single_cycle(PC_sel, MemToReg, REG_sel, ALU_OP, write_EN, HL
 					MEM_read	= 1'b0;
 					MEM_write	= 1'b0;
 					MemToReg	= 2'bxx;
-					PC_sel		= 2'b11;
+					PC_sel		= 2'bxx;
 				end
 			endcase
 		end

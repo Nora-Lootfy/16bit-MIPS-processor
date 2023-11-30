@@ -25,6 +25,22 @@ module data_memory
 			ram[i] = 16'b0;
 	end
 	
+	initial	begin
+		#1
+		ram[0] = 16'd10;
+		ram[1] = 16'd1;
+		
+		ram[2] = 16'd1;
+		ram[3] = 16'd5;
+		ram[4] = 16'd1;
+		
+		ram[5] = 16'd11;
+		ram[6] = 16'd25;
+		ram[7] = 16'd5;
+		ram[8] = 16'd17;
+		ram[9] = 16'd133;
+	end
+	
 	always @(posedge clk) begin
 		if(mem_write)
 			ram[ram_add] <= data_write;
