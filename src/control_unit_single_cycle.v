@@ -209,7 +209,7 @@ module control_unit_single_cycle(PC_sel, MemToReg, REG_sel, ALU_OP, write_EN, HL
 					MemToReg	= 2'bxx;
 					PC_sel		= (zero_flag)? 2'b10:2'b00;
 				end
-				3'b100: begin //branch if not equal
+				/*3'b100: begin //branch if not equal
 					REG_sel 	= 2'bxx;
 					write_EN	= 1'b0;
 					HLT_RST 	= 1'b1;
@@ -219,6 +219,17 @@ module control_unit_single_cycle(PC_sel, MemToReg, REG_sel, ALU_OP, write_EN, HL
 					MEM_write	= 1'b0;
 					MemToReg	= 2'bxx;
 					PC_sel		= (~zero_flag)? 2'b10:2'b00;
+				end	*/
+				3'b100: begin //add immediate
+					REG_sel 	= 2'b00;
+					write_EN	= 1'b1;
+					HLT_RST 	= 1'b1;
+					ALU_sel		= 1'b1;
+					ALU_OP		= 4'h0;
+					MEM_read	= 1'b0;
+					MEM_write	= 1'b0;
+					MemToReg	= 2'b00;
+					PC_sel		= 2'b00;
 				end
 				3'b101: begin //jump
 					REG_sel 	= 2'bxx;
