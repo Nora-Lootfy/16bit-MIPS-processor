@@ -2,8 +2,7 @@
 
 ## Instruction Set Architecture:
 
-<center>
-<table>
+<table align="center">
     <tr>
         <th>Type</th>
         <th>Instruction</th>
@@ -163,4 +162,3 @@
         <td>xxxx</td>
     </tr>
 </table>
-</center>
